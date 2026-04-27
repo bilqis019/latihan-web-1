@@ -223,43 +223,34 @@
             <h1><i>
                 Kota Di Indonesia 
             </u></i><h1>
-        <from method="post" action="">
+<form method="post" action="">
 
-            Nama: <input type="text" name="Nama" required><br>
-            Nomor HP: <input type="number" name="No_hp" required><br>
-            TTL: <input type="date" name="TTL" required><br>
+        Nama: <input type="text" name="nama" required><br>
+        Nomor HP: <input type="number" name="no_hp" required><br>
+        TTL: <input type="date" name="ttl" required><br>
 
-            Nilai Tugas 1: <input type="number" name="nilai_tugas_1" required><br>
-            Nilai Tugas 2: <input type="number" name="nilai_tugas_2" required><br>
+        Nilai Tugas 1: <input type="number" name="nilai_tugas_1" required><br>
+        Nilai Tugas 2: <input type="number" name="nilai_tugas_2" required><br>
             
-            <input type="submit" name="kirim" value="kirim">
-            </from>
-            <main>
+        <input type="submit" name="kirim" value="kirim">
+        </form>
 
             <?php if (isset($_POST['kirim'])): ?>  
+            <div>
+                
+        <strong>Nama:</strong> <?php echo $_POST['nama']; ?><br>
+        <strong>Nomor HP:</strong> <?php echo $_POST['no_hp']; ?><br>
+        <strong>TTL:</strong> <?php echo $_POST['ttl']; ?><br>
+        <strong>Nilai Tugas 1:</strong> <?php echo (float) $_POST['nilai_tugas_1']; ?><br>
+        <strong>Nilai Tugas 2:</strong> <?php echo (float) $_POST['nilai_tugas_2']; ?><br>
 
-            Nama: <?php echo isset($_POST['nama']) ? $_POST['nama'] : ''; ?><br>
+        <strong>Total Nilai:</strong> 
+        <?php 
+        echo (float)$_POST['nilai_tugas_1'] + (float)$_POST['nilai_tugas_2']; 
+        ?>
 
-
-            Nomer HP: <?php echo isset ($_POST['no_hp']) ? $_POST['n0_hp'] : ''; ?><br>
-
-
-            TTL: <?php echo isset ($POST['ttl']) ? $_POST['ttl'] : ''; ?><br>
-
-
-            Nilai Tugas 1: <?php echo isset ($_POST['nilai_tugas_1']) ?
-                (float) $_POST['nilai_tugas_1'] : 0; ?><br>
-
-
-            Nilai Tugas 2: <?php echo isset ($_POST['nilai_tugas_1']) ?
-                (float) $_POST['nilai_tugas_2'] : 0; ?><br>
-
-
-            Total Nilai (Tugas 1 + Tugas 2): <?php echo
-            (isset($_POST['nilai_tugas_1']) ? (float)$_POST['nilai_tugas_1'] : 0) +
-            (isset($_POST['nilai_tugas_2']) ? (float)$_POST['nilai_tugas_2 :'] : 0); ?> 
-
-    <?php endif; ?>
+</div>
+<?php endif; ?>
 
     </div>
 
